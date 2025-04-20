@@ -28,6 +28,134 @@
   color: #61dafb;
 }
 
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* 集めたカードとの間隔を調整 */
+}
+
+.card {
+  background-color: transparent; /* Remove background color */
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  width: auto;
+  height: auto;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly scale the card container */
+}
+
+.card-image {
+  width: auto;
+  height: 200px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.card-image:hover {
+  transform: scale(1.2); /* Scale up the image */
+}
+
+.collected-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px; /* 集めたカードを最も下側に配置 */
+}
+
+.collected-card {
+  position: relative; /* 拡大表示をカードの横に表示するために必要 */
+  background-color: #282c34;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  width: 80px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.collected-card:active {
+  cursor: grabbing;
+}
+
+.collected-card img {
+  width: auto; /* 自動で幅を調整 */
+  height: 120px; /* 高さを固定 */
+  max-width: 100%; /* 親要素の幅を超えないようにする */
+  object-fit: contain; /* アスペクト比を維持して画像を表示 */
+  border-radius: 5px;
+}
+
+.collected-card img:hover {
+  transform: none; /* Remove scaling effect */
+  transition: none; /* Remove transition effect */
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 110%; /* Display the popup to the right of the card */
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-image {
+  width: 150px; /* Adjust the size of the popup image */
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-hover {
+  position: absolute;
+  top: -50px; /* カードの少し斜め上に表示 */
+  left: 50%; /* カードの中央に揃える */
+  transform: translateX(-50%); /* 中央揃えを補正 */
+  z-index: 9999; /* 最も上側のレイヤーに表示 */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hovered-card-image {
+  width: 300px; /* 拡大画像の幅を調整 */
+  height: auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
